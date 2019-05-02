@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -25,7 +26,7 @@ public class Main extends JFrame implements ActionListener, KeyListener, WindowL
 	private Contacts contacts = new Contacts();
 	private JTextField cmd;
 	private JTextArea textArea;
-	
+	private JFileChooser fileChooser = new JFileChooser();
 	
 	public Main() throws IOException {
 		super("Prueba de Swing");
@@ -159,17 +160,30 @@ public class Main extends JFrame implements ActionListener, KeyListener, WindowL
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("LOAD")) {
-			
+			load();
 		}
 		else if (e.getActionCommand().equals("SAVE")) {
-			
+			save();
 		}
 		else if (e.getActionCommand().equals("SAVEAS")) {
-			
+			saveAs();
 		}
 		else if (e.getActionCommand().equals("EXEC")) {
 			exec();
 		}
+	}
+	
+	private void load() {
+		if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+			contacts.load(fileChooser.getSelectedFile());
+	}
+	
+	private void save() {
+		
+	}
+	
+	private void saveAs() {
+		
 	}
 
 }

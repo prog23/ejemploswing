@@ -5,8 +5,6 @@ import java.util.TreeMap;
 
 public class Contacts extends TreeMap<String, String> {
 
-	File file;
-	
 	public String exec(String cmd) {
 		String result = null;
 		
@@ -82,13 +80,8 @@ public class Contacts extends TreeMap<String, String> {
 		
 	}
 	
-	public void save() {
+	public void save(File file) {
 	
-	}
-	
-	public void saveas(File file) {
-		this.file = file;
-		save();
 	}
 	
 }
